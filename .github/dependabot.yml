@@ -36,13 +36,6 @@ updates:
     schedule:
       interval: weekly
       
-  - package-ecosystem: github-actions
-    directory: "/.github/actions/prepare-build-env"
-    assignees: [timothyfroehlich]
-    reviewers: [timothyfroehlich]
-    schedule:
-      interval: weekly
-      
   - package-ecosystem: cargo
     directory: /
     assignees: [timothyfroehlich]
