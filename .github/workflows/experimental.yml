@@ -13,7 +13,9 @@
 # limitations under the License.
 
 
-name: Nightly Experimental
+# Testing our builds versus the latest and incoming releases of
+# key build tools and dependencies
+name: Nightly Experimental Builds
 
 on: 
   schedule:
@@ -21,7 +23,7 @@ on:
   # Also run on pull requests that change this file
   pull_request:
     paths:
-      .github/workflows/nightly.yml
+      .github/workflows/experimental.yml
 
 permissions:  # added using https://github.com/step-security/secure-repo
   contents: read
@@ -123,7 +125,7 @@ jobs:
       uses: gradle/gradle-build-action@a4cf152f482c7ca97ef56ead29bf08bcd953284c # v2.4.2
       with:
         dependency-graph: generate
-        gradle-home-cache-cleanup: true
+        cache-read-only: true
 
     - uses: actions/download-artifact@9bc31d5ccc31df68ecc42ccf4149144866c47d8a # v3.0.2
       with:

@@ -1,5 +1,5 @@
 
-name: SDK Gradle Build and Dependencies
+name: SDK Gradle Build
 
 # The on: and concurrencency: blocks should be the same for all core workflows
 # Triggers nightly, on merges or pushes to main and stable and on pull requests.
@@ -123,6 +123,9 @@ jobs:
 
       - name: Gradle Test
         uses: gradle/gradle-build-action@a4cf152f482c7ca97ef56ead29bf08bcd953284c # v2.7.0
+        
+        env: ######### TEMPORARY DO_NOT_SUBMIT
+          GRADLE_BUILD_ACTION_CACHE_DEBUG_ENABLED: true
         with:
           arguments: check build publishAllPublicationsToLocalDirRepository 
       
@@ -161,10 +164,6 @@ jobs:
         name: designcompose_m2repo
         path: designcompose_m2repo
     
-    - run: |
-        ls
-        ls *
-
     - name: "Set environment variables"
       run: |
         echo "ORG_GRADLE_PROJECT_DesignComposeMavenRepo=$PWD/designcompose_m2repo" >> "$GITHUB_ENV"
