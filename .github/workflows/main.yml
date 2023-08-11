@@ -123,9 +123,6 @@ jobs:
 
       - name: Gradle Test
         uses: gradle/gradle-build-action@a4cf152f482c7ca97ef56ead29bf08bcd953284c # v2.7.0
-        
-        env: ######### TEMPORARY DO_NOT_SUBMIT
-          GRADLE_BUILD_ACTION_CACHE_DEBUG_ENABLED: true
         with:
           arguments: check build publishAllPublicationsToLocalDirRepository 
       
@@ -248,7 +245,6 @@ jobs:
         run: cargo build --all-targets --all-features
       - name: Test all
         run: cargo test --all-targets --all-features
-
 
 ############ Figma resources
 
