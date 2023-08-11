@@ -99,14 +99,16 @@ updates:
       interval: weekly
 
   - package-ecosystem: gradle
+    directory: "/"
     registries:
       - maven-google
       - gradle-plugin-portal
-    directory: "/"
-    assignees:
-      - "timothyfroehlich"
-    reviewers:
-      - "timothyfroehlich"
+    assignees: [timothyfroehlich]
+    reviewers: [timothyfroehlich]
+    groups: 
+      gradle-plugin-dependencies:
+        patterns:
+          - "*"
+    open-pull-requests-limit: 2
     schedule:
       interval: daily
-    open-pull-requests-limit: 5
