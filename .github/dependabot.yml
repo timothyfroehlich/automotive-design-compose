@@ -102,7 +102,7 @@ updates:
     registries:
       - maven-google
       - gradle-plugin-portal
-    directory: "/gradle/libs.versions.toml"
+    directory: "/"
     assignees:
       - "timothyfroehlich"
     reviewers:
@@ -112,7 +112,7 @@ updates:
         patterns:
           - "*"
     schedule:
-      interval: weekly
+      interval: daily
     ignore:
         - dependency-name: "com.android.tools.build"
         - dependency-name: "com.google.devtools.ksp"
