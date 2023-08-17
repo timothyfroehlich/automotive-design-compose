@@ -1,6 +1,6 @@
 [versions]
 accompanist = "0.30.1"
-android-car-ui = "2.5.0"
+android-car-ui = "2.5.1"
 android-gms-ossLicenses = "17.0.1"
 android-gms-strictVersionMatcher = "1.2.4"
 android-gradlePlugin = "8.1.0"
@@ -9,11 +9,11 @@ android-gradlePlugin = "8.1.0"
 android-gradlePlugin-minSupported = "7.3.1"
 androidx-activity-compose = "1.7.2"
 androidx-appcompat = "1.6.1"
-androidx-compose-bom = "2023.06.01"
+androidx-compose-bom = "2023.08.00"
 # @keep Non-`dependency` constant
 androidx-compose-compiler = "1.5.1"
 androidx-compose-foundation = "1.4.3"
-androidx-compose-runtime = "1.4.3"
+androidx-compose-runtime = "1.5.0"
 androidx-compose-ui = "1.4.3"
 androidx-constraintlayout = "2.1.4"
 androidx-legacy-support-v4 = "1.0.0"
@@ -45,13 +45,13 @@ material = "1.9.0"
 # @keep Non-`dependency` constant
 minSdk = "26"
 mockito = "5.1.1"
-mockkAgent = "1.13.5"
+mockkAgent = "1.13.7"
 mockkAndroid = "1.13.5"
 mysql = "8.0.32"
 rules = "1.5.0"
 # @keep Non-`dependency` constant
 targetSdk = "33"
-junit5 = "5.9.3"
+junit5 = "5.10.0"
 truth = "1.1.4"
 
 [libraries]
