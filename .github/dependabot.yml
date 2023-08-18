@@ -88,9 +88,8 @@ updates:
     assignees: [timothyfroehlich]
     reviewers: [timothyfroehlich]
     groups: 
-      minor-figma-plugin-dependencies:
+      figma-plugin-dependencies-patches:
         update-types:
-        - "minor"
         - "patch"
     open-pull-requests-limit: 3
     schedule:
@@ -103,11 +102,9 @@ updates:
     - gradle-plugin-portal
     assignees: [timothyfroehlich]
     reviewers: [timothyfroehlich]
-    # Groups seem to be busted for Dependabot.
     groups: 
-      minor-gradle-dependencies:
+      gradle-dependencies-patches:
         update-types:
-        - "minor"
         - "patch"
     open-pull-requests-limit: 3
     schedule:
