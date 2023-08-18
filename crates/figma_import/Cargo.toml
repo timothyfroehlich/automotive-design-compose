@@ -25,13 +25,13 @@ fetch = ["clap"]
 
 unicode-segmentation = "1"
 "image" = { version = "0.24", default-features = false, features = ["png", "jpeg"] }
-"euclid" = { version = "0.20.13", default-features = false, features = ["serde"] }
+"euclid" = { version = "0.22.9", default-features = false, features = ["serde"] }
 "phf" = { version = "0.11.2", features = ["macros"], optional = true }
 
 # reflection dependencies
 "serde-reflection" = { version = "0.3", optional = true }
 "serde-generate" = { version = "0.25.1", optional = true }
-clap = { version = "4.0", features = ["derive"], optional = true }
+clap = { version = "4.3", features = ["derive"], optional = true }
 
 # webserver dependencies
 rocket = { version = "0.5.0-rc.1", features = ["json"], optional = true }
