@@ -102,10 +102,10 @@ updates:
     - gradle-plugin-portal
     assignees: [timothyfroehlich]
     reviewers: [timothyfroehlich]
-    groups: 
-      gradle-dependencies-patches:
-        update-types:
-        - "patch"
+    # groups: 
+    #   gradle-dependencies-patches:
+    #     update-types:
+    #     - "patch"
     open-pull-requests-limit: 3
     schedule:
       interval: daily
