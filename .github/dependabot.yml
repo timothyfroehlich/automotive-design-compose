@@ -58,9 +58,6 @@ updates:
     open-pull-requests-limit: 2
     schedule:
       interval: weekly
-    # Only allow updates to the lockfile and
-    # ignore any version updates that affect the manifest
-    versioning-strategy: lockfile-only
 
   - package-ecosystem: bundler
     directory: /docs
