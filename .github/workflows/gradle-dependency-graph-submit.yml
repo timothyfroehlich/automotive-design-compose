@@ -21,7 +21,12 @@ jobs:
   submit-snapshots:
     runs-on: ubuntu-latest
     steps:
+      - name: Harden Runner
+        uses: step-security/harden-runner@8ca2b8b2ece13480cda6dacd3511b49857a23c09 # v2.5.1
+        with:
+          egress-policy: audit
+
       - name: Retrieve dependency graph artifact from the Gradle builds and submit
-        uses: gradle/gradle-build-action@v2
+        uses: gradle/gradle-build-action@a4cf152f482c7ca97ef56ead29bf08bcd953284c # v2.7.0
         with:
           dependency-graph: download-and-submit
