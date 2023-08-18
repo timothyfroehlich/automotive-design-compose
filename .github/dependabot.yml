@@ -33,7 +33,7 @@ updates:
     groups: 
       github-workflow-dependencies:
         patterns:
-          - "*"
+        - "*"
     open-pull-requests-limit: 2
     schedule:
       interval: weekly
@@ -54,7 +54,7 @@ updates:
     groups: 
       rust-dependencies:
         patterns:
-          - "*"
+        - "*"
     open-pull-requests-limit: 2
     schedule:
       interval: weekly
@@ -69,7 +69,7 @@ updates:
     groups: 
       jekyll-dependencies:
         patterns:
-          - "*"
+        - "*"
     open-pull-requests-limit: 2
     schedule:
       interval: weekly
@@ -81,7 +81,7 @@ updates:
     groups: 
       figma-widget-dependencies:
         patterns:
-          - "*"
+        - "*"
     open-pull-requests-limit: 2
     schedule:
       interval: weekly
@@ -93,8 +93,8 @@ updates:
     groups: 
       minor-figma-plugin-dependencies:
         update-types:
-          - "minor"
-          - "patch"
+        - "minor"
+        - "patch"
     open-pull-requests-limit: 3
     schedule:
       interval: weekly
@@ -102,16 +102,16 @@ updates:
   - package-ecosystem: gradle
     directory: "/"
     registries:
-      - maven-google
-      - gradle-plugin-portal
+    - maven-google
+    - gradle-plugin-portal
     assignees: [timothyfroehlich]
     reviewers: [timothyfroehlich]
     # Groups seem to be busted for Dependabot.
     groups: 
       minor-gradle-dependencies:
         update-types:
-          - "minor"
-          - "patch"
+        - "minor"
+        - "patch"
     open-pull-requests-limit: 3
     schedule:
       interval: daily
