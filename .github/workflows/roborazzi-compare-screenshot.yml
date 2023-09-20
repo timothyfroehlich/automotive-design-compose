@@ -11,7 +11,7 @@ on:
 permissions: {}
 
 jobs:
-  compare-screenshot-test:
+  compare-screenshot:
     runs-on: ubuntu-latest
     timeout-minutes: 20
 
@@ -36,7 +36,7 @@ jobs:
         continue-on-error: true
         with:
           name: screenshot
-          workflow: StoreScreenshot.yml
+          workflow: roborazzi-store-screenshot.yml
           branch: ${{ github.event_name == 'pull_request' && github.event.pull_request.base.ref || 'main' }}
 
       - name: compare screenshot test
