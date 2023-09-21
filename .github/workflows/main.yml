@@ -222,6 +222,8 @@ jobs:
       - name: Generate full comparison 
         uses: gradle/gradle-build-action@ef76a971e2fa3f867b617efd72f2fbd72cf6f8bc # v2.8.0
         with:
+          # Upload in the dependency-review workflow
+          dependency-graph: generate
           arguments: compareRoborazziDebug
 
       - name: Upload diff report
@@ -233,13 +235,12 @@ jobs:
             **/build/reports/roborazzi
           retention-days: 30
 
-      - name: Verify Roborazzi
+      - name: Verify Roborazzi and record fresh screenshots
         uses: gradle/gradle-build-action@ef76a971e2fa3f867b617efd72f2fbd72cf6f8bc # v2.8.0
         with:
-          # Upload in the dependency-review workflow
-          dependency-graph: generate
           arguments: verifyAndRecordRoborazziDebug
 
+      # These screenshots are stored  
       - uses: actions/upload-artifact@v3
         if: ${{ always() }}
         with:
