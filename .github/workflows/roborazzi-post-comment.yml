@@ -5,7 +5,7 @@ name: Screenshot compare comment
 on:
   workflow_run:
     workflows:
-      - CompareScreenshot
+      - roborazzi-post-comment
     types:
       - completed
 
