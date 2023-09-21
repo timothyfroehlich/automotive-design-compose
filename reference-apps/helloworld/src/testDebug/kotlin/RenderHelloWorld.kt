@@ -61,9 +61,9 @@ class RenderHelloWorld {
     @Test
     fun testHello() {
         with(composeTestRule) {
-            setContent { HelloWorldDoc.mainFrame(name = "I changed again!") }
+            setContent { HelloWorldDoc.mainFrame(name = "Tester!") }
             onNode(SemanticsMatcher.expectValue(docIdSemanticsKey, helloWorldDocId)).assertExists()
-            onNodeWithText("I changed again!", substring = true).assertExists()
+            onNodeWithText("Tester!", substring = true).assertExists()
         }
     }
 }
