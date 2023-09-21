@@ -54,13 +54,6 @@ jobs:
         with:
           name: screenshot-reports
           path: |
-            **/build/reports
-          retention-days: 30
-
-      - uses: actions/upload-artifact@v3
-        if: ${{ always() }}
-        with:
-          name: screenshot-test-results
-          path: |
-            **/build/test-results
+            **/src/testDebug/roborazzi
+            **/build/reports/roborazzi
           retention-days: 30

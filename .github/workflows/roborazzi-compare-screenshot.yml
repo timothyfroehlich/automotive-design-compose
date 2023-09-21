@@ -50,6 +50,7 @@ jobs:
           name: screenshot-diff
           path: |
             **/src/testDebug/roborazzi
+            **/build/outputs/roborazzi
           retention-days: 30
 
       - uses: actions/upload-artifact@v3
@@ -57,15 +58,8 @@ jobs:
         with:
           name: screenshot-diff-reports
           path: |
-            **/build/reports
-          retention-days: 30
-
-      - uses: actions/upload-artifact@v3
-        if: ${{ always() }}
-        with:
-          name: screenshot-diff-test-results
-          path: |
-            **/build/test-results
+            **/build/outputs/roborazzi
+            **/build/reports/roborazzi
           retention-days: 30
 
       - name: Save PR number

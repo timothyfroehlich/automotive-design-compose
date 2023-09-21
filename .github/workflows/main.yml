@@ -223,25 +223,10 @@ jobs:
       - uses: actions/upload-artifact@v3
         if: ${{ always() }}
         with:
-          name: screenshot-diff
+          name: screenshot-diff-report
           path: |
             **/src/testDebug/roborazzi
-          retention-days: 30
-
-      - uses: actions/upload-artifact@v3
-        if: ${{ always() }}
-        with:
-          name: screenshot-diff-reports
-          path: |
-            **/build/reports
-          retention-days: 30
-
-      - uses: actions/upload-artifact@v3
-        if: ${{ always() }}
-        with:
-          name: screenshot-diff-test-results
-          path: |
-            **/build/test-results
+            **/build/reports/roborazzi
           retention-days: 30
 
 ########### Tutorial app
