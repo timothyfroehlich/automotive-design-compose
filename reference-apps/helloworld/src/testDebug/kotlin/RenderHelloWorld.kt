@@ -70,7 +70,6 @@ class RenderHelloWorld {
         }
     }
 
-
     @Test
     fun testError() {
         with(composeTestRule) {
