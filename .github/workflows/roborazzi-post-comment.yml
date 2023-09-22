@@ -14,7 +14,7 @@
 
 # Adapted from https://github.com/takahirom/roborazzi-compare-on-github-comment-sample/blob/main/.github/workflows/CompareScreenshotComment.yml
 
-name: Screenshot compare comment
+name: Create Screenshot Diff Comment
 
 on:
   workflow_run:
@@ -23,7 +23,7 @@ on:
     types:
       - completed
 
-permissions: { }
+permissions: {}
 
 jobs:
   Comment-CompareScreenshot:
