@@ -66,7 +66,7 @@ class RenderHelloWorld {
             onNode(SemanticsMatcher.expectValue(docIdSemanticsKey, helloWorldDocId)).assertExists()
             onNodeWithText("Test 4", substring = true)
                 .also { it.assertExists() }
-                .captureRoboImage("theText.png")
+                .captureRoboImage("src/testDebug/roborazzi/theText.png")
         }
     }
 
@@ -77,7 +77,7 @@ class RenderHelloWorld {
             onNode(SemanticsMatcher.expectValue(docIdSemanticsKey, helloWorldDocId)).assertExists()
             onNodeWithText("Test Error", substring = true)
                 .also { it.assertExists() }
-                .captureRoboImage("theTestErrorText.png")
+                .captureRoboImage("src/testDebug/roborazzi/theTestErrorText.png")
         }
     }
 }

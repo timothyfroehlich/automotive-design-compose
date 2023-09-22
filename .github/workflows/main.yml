@@ -194,7 +194,7 @@ jobs:
 
   # These tests run on the local JVM and don't need the rust code, 
   # so it makes sense to put them in a seperate job
-  roborazzi:
+  verify-roborazzi:
     runs-on: "ubuntu-latest"
     steps:
       - name: Harden Runner
