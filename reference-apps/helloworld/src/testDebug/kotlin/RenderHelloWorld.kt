@@ -63,7 +63,7 @@ class RenderHelloWorld {
     @Test
     fun testError() {
         with(composeTestRule) {
-            val text = "Comitted"
+            val text = "Committed"
             setContent { HelloWorldDoc.mainFrame(name = text) }
             onNode(SemanticsMatcher.expectValue(docIdSemanticsKey, helloWorldDocId)).assertExists()
             onNodeWithText(text, substring = true)
