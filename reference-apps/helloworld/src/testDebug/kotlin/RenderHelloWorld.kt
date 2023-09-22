@@ -58,30 +58,26 @@ class RenderHelloWorld {
                     captureType = RoborazziRule.CaptureType.LastImage()
                 )
         )
-    @Test
-    fun testError() {
-        val text = "Diff from golden screenshot"
-
-        with(composeTestRule) {
-            setContent { HelloWorldDoc.mainFrame(name = text) }
-            onNode(SemanticsMatcher.expectValue(docIdSemanticsKey, helloWorldDocId)).assertExists()
-            onNodeWithText(text, substring = true)
-                .also { it.assertExists() }
-                .captureRoboImage("theTestErrorText.png")
-        }
-    }
 
     @Test
     fun testHello() {
-
-        val text = "Diff from base"
         with(composeTestRule) {
-            setContent { HelloWorldDoc.mainFrame(name = text) }
+            setContent { HelloWorldDoc.mainFrame(name = "Test 4") }
             onNode(SemanticsMatcher.expectValue(docIdSemanticsKey, helloWorldDocId)).assertExists()
-            onNodeWithText(text, substring = true)
+            onNodeWithText("Test 4", substring = true)
                 .also { it.assertExists() }
                 .captureRoboImage("theText.png")
         }
     }
 
+    @Test
+    fun testError() {
+        with(composeTestRule) {
+            setContent { HelloWorldDoc.mainFrame(name = "Test Error") }
+            onNode(SemanticsMatcher.expectValue(docIdSemanticsKey, helloWorldDocId)).assertExists()
+            onNodeWithText("Test Error", substring = true)
+                .also { it.assertExists() }
+                .captureRoboImage("theTestErrorText.png")
+        }
+    }
 }
