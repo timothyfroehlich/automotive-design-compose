@@ -71,7 +71,7 @@ jobs:
       - uses: dawidd6/action-download-artifact@246dbf436b23d7c49e21a7ab8204ca9ecd1fe615 # v2.27.0
         with:
           run_id: ${{ github.event.workflow_run.id }}
-          name: screenshot-diff
+          name: diff-vs-base-branch
           path: screenshot-diff
 
       - id: check-if-there-are-valid-files
@@ -125,7 +125,7 @@ jobs:
             echo "reports<<${delimiter}"
           
             # Create markdown table header
-            echo "Snapshot diff report vs base branch           ref: ${{ github.event.workflow_run.event  == 'pull_request' && github.event.workflow_run.event.pull_request.base.ref || 'main' }}"
+            echo "Snapshot diff report vs base branch: ${{ github.event.workflow_run.event  == 'pull_request' && github.event.workflow_run.event.pull_request.base.ref || 'main' }}"
             echo "| File name | Image |"
             echo "|-------|-------|"
           } >> "$GITHUB_OUTPUT"
