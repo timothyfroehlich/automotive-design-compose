@@ -51,9 +51,7 @@ jobs:
       - name: Set up Gradle
         uses: gradle/gradle-build-action@ef76a971e2fa3f867b617efd72f2fbd72cf6f8bc # v2.8.0
         with:
-          # Upload in the dependency-review workflow
-          dependency-graph: generate
-          gradle-home-cache-cleanup: true
+          cache-read-only: true
 
       - name: Record fresh screenshots
         uses: gradle/gradle-build-action@ef76a971e2fa3f867b617efd72f2fbd72cf6f8bc # v2.8.0
@@ -95,7 +93,6 @@ jobs:
 
       - name: Download screenshots from base branch
         uses: dawidd6/action-download-artifact@v2
-        continue-on-error: true
         with:
           name: screenshots
           branch: ${{ github.event_name == 'pull_request' && github.event.pull_request.base.ref || 'main' }}
