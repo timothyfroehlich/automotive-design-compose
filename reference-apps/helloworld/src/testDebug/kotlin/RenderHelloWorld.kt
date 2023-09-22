@@ -62,7 +62,7 @@ class RenderHelloWorld {
     @Test
     fun testError() {
         with(composeTestRule) {
-            val text = "Diff vs Comitted"
+            val text = "A Diff vs Comitted"
             setContent { HelloWorldDoc.mainFrame(name = text) }
             onNode(SemanticsMatcher.expectValue(docIdSemanticsKey, helloWorldDocId)).assertExists()
             onNodeWithText(text, substring = true)
@@ -74,7 +74,7 @@ class RenderHelloWorld {
     @Test
     fun testHello() {
         with(composeTestRule) {
-            val text = "Diff vs Base"
+            val text = "A Diff vs Base"
             setContent { HelloWorldDoc.mainFrame(name = text) }
             onNode(SemanticsMatcher.expectValue(docIdSemanticsKey, helloWorldDocId)).assertExists()
             onNodeWithText(text, substring = true)
