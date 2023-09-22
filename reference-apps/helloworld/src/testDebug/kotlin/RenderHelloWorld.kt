@@ -25,6 +25,7 @@ import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.android.designcompose.docIdSemanticsKey
 import com.github.takahirom.roborazzi.RobolectricDeviceQualifiers
 import com.github.takahirom.roborazzi.RoborazziRule
+import com.github.takahirom.roborazzi.captureRoboImage
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -63,7 +64,21 @@ class RenderHelloWorld {
         with(composeTestRule) {
             setContent { HelloWorldDoc.mainFrame(name = "Test 3") }
             onNode(SemanticsMatcher.expectValue(docIdSemanticsKey, helloWorldDocId)).assertExists()
-            onNodeWithText("Test 3", substring = true).assertExists()
+            onNodeWithText("Test 3", substring = true)
+                .also { it.assertExists() }
+                .captureRoboImage("theText.png")
+        }
+    }
+
+
+    @Test
+    fun testError() {
+        with(composeTestRule) {
+            setContent { HelloWorldDoc.mainFrame(name = "Test Error") }
+            onNode(SemanticsMatcher.expectValue(docIdSemanticsKey, helloWorldDocId)).assertExists()
+            onNodeWithText("Test Error", substring = true)
+                .also { it.assertExists() }
+                .captureRoboImage("theTestErrorText.png")
         }
     }
 }

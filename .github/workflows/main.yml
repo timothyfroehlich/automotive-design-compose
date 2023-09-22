@@ -212,18 +212,23 @@ jobs:
         with:
           distribution: "temurin"
           java-version: "17"
-
-      # Ordering of these tasks matters.
-      # First generate the screenshot diffs and upload them
-      # Then run verifyAndRecord to get a pass/fail for the job and record fresh screenshots
-      # and upload the new screenshots for use as a baseline for future runs of the 
-      # compare-screenshot workflow
-
-      - name: Generate full comparison 
+    
+      - name: Set up Gradle
         uses: gradle/gradle-build-action@ef76a971e2fa3f867b617efd72f2fbd72cf6f8bc # v2.8.0
         with:
           # Upload in the dependency-review workflow
           dependency-graph: generate
+          gradle-home-cache-cleanup: true
+
+      # Ordering of these tasks matters.
+      # First generate the screenshot diffs and upload them
+      # Then verify if the saved screenshots for this branch are correct
+      # Finally, record and upload fresh screenshots to use as a baseline 
+      # for future runs of the compare-screenshot workflow
+
+      - name: Generate full comparison 
+        uses: gradle/gradle-build-action@ef76a971e2fa3f867b617efd72f2fbd72cf6f8bc # v2.8.0
+        with:
           arguments: compareRoborazziDebug
 
       - name: Upload diff report
@@ -235,12 +240,19 @@ jobs:
             **/build/reports/roborazzi
           retention-days: 30
 
-      - name: Verify Roborazzi and record fresh screenshots
+      - name: Verify Roborazzi
         uses: gradle/gradle-build-action@ef76a971e2fa3f867b617efd72f2fbd72cf6f8bc # v2.8.0
         with:
-          arguments: verifyAndRecordRoborazziDebug
+          arguments: verifyRoborazziDebug
 
-      # These screenshots are stored  
+      - name: Record fresh screenshots
+        uses: gradle/gradle-build-action@ef76a971e2fa3f867b617efd72f2fbd72cf6f8bc # v2.8.0
+        if: ${{ always() }}
+        with:
+          arguments: recordRoborazziDebug
+
+      # These screenshots are stored to use as a baseline for future runs of the
+      # roborazzi-compare-screenshot workflow 
       - uses: actions/upload-artifact@v3
         if: ${{ always() }}
         with:
