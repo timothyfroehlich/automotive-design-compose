@@ -20,6 +20,7 @@ import androidx.activity.ComponentActivity
 import androidx.compose.ui.test.SemanticsMatcher
 import androidx.compose.ui.test.junit4.createAndroidComposeRule
 import androidx.compose.ui.test.onNodeWithText
+import androidx.compose.ui.test.onParent
 import androidx.compose.ui.test.onRoot
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.android.designcompose.docIdSemanticsKey
@@ -68,6 +69,9 @@ class RenderHelloWorld {
             onNodeWithText(text, substring = true)
                 .also { it.assertExists() }
                 .captureRoboImage("src/testDebug/roborazzi/theTestErrorText.png")
+            onNodeWithText(text, substring = true)
+                .onParent()
+                .captureRoboImage("src/testDebug/roborazzi/theTestErrorTextParent.png")
         }
     }
 
@@ -80,6 +84,9 @@ class RenderHelloWorld {
             onNodeWithText(text, substring = true)
                 .also { it.assertExists() }
                 .captureRoboImage("src/testDebug/roborazzi/theText.png")
+            onNodeWithText(text, substring = true)
+                .onParent()
+                .captureRoboImage("src/testDebug/roborazzi/theTextParent.png")
         }
     }
 }
