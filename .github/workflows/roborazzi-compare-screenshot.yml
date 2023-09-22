@@ -89,6 +89,7 @@ jobs:
 
       - name: Download screenshots from base branch
         uses: dawidd6/action-download-artifact@v2
+        continue-on-error: true
         with:
           name: screenshots
           branch: ${{ github.event_name == 'pull_request' && github.event.pull_request.base.ref || 'main' }}
