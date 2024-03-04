@@ -32,7 +32,7 @@ interface HelloWorld {
 @Composable
 fun HelloWorld() {
     HelloWorldDoc.Main(
-        name = "World",
+        name = "Woasdfasfrld",
         designComposeCallbacks =
             DesignComposeCallbacks(
                 docReadyCallback = { id ->
