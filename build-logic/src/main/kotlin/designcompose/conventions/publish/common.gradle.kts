@@ -49,5 +49,13 @@ publishing {
                         ?: project.layout.buildDirectory.dir("designcompose_m2repo")
                 )
         }
+        // Snapshot publishing. Only configure if the username and password are set.
+        if(project.hasProperty("DesignComposeSnapshotRepoUsername") && project.hasProperty("DesignComposeSnapshotRepoPassword")) {
+            maven {
+                name = "DesignComposeSnapshotRepo"
+                url = uri("https://maven.pkg.github.com/timothyfroehlich/automotive-design-compose")
+                credentials(PasswordCredentials::class) // Grabs the username and password from the above properties
+            }
+        }
     }
 }
